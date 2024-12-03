@@ -1,4 +1,4 @@
-package com.example.version2_xpresbank;
+package org.example.version2_xpresbank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

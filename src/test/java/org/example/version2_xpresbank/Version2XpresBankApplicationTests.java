@@ -1,4 +1,4 @@
-package com.example.version2_xpresbank;
+package org.example.version2_xpresbank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
