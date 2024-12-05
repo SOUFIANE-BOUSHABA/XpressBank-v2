@@ -15,10 +15,5 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-  data:
-    elasticsearch:
-      client:
-        rest:
-          uris: http://localhost:9200
-      repositories:
-        enabled: true
+
+

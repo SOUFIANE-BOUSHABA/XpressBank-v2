@@ -14,22 +14,27 @@ import org.example.version2_xpresbank.VM.UserVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.List;
 
 @Service
 public class AuthService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserMapper userMapper;
+    private PasswordEncoder passwordEncoder;
     private final Map<String, User> sessions = new HashMap<>();
 
     @Autowired
-    public AuthService(UserRepository userRepository, RoleRepository roleRepository, UserMapper userMapper) {
+    public AuthService(UserRepository userRepository, RoleRepository roleRepository, UserMapper userMapper, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
         this.userMapper = userMapper;
     }
 
@@ -41,6 +46,7 @@ public class AuthService {
         User newUser = userMapper.fromRegisterUserDTO(registerUserDTO);
         newUser.setRole(role);
 
+        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         User savedUser = userRepository.save(newUser);
         return userMapper.toUserVM(savedUser, "Registration successful");
     }
@@ -63,6 +69,12 @@ public class AuthService {
         }
     }
 
+
+
+    public List<String> getUserRoles(String username) {
+        User user = userRepository.findByUsername(username).orElseThrow();
+        return List.of(user.getRole().getName().toString());
+    }
 
 
     public UserVM getLoggedInUser(String token) {
@@ -102,5 +114,9 @@ public class AuthService {
     }
 
 
-
+    public UserVM getUserByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UserNotFoundException("User not found with username: " + username));
+        return userMapper.toUserVM(user, "User retrieved successfully");
+    }
 }

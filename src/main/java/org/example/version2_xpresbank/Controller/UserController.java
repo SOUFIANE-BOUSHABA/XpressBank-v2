@@ -9,6 +9,7 @@ import org.example.version2_xpresbank.Utils.AuthUtils;
 import org.example.version2_xpresbank.VM.UserVM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,10 +38,9 @@ public class UserController {
         }
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")
-    public ResponseEntity<UserVM> createUser(@RequestHeader("Authorization") String authorizationHeader,
-                                             @RequestBody RegisterUserDTO registerUserDTO) {
-        checkAdminPermission(authorizationHeader);
+    public ResponseEntity<UserVM> createUser(@RequestBody RegisterUserDTO registerUserDTO) {
         UserVM userVM = userService.createUser(registerUserDTO);
         return ResponseEntity.ok(userVM);
     }
