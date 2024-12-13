@@ -1,4 +1,20 @@
+server:
+  port: 8181
+  jwt:
+    auth:
+      converter:
+        resource-id: XpressBank_id
+        principal-attribute: preferred_username
+
+
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/XpressBank
+          jwk-set-uri: http://localhost:8080/auth/realms/XpressBank/protocol/openid-connect/certs
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/XpressBank
@@ -15,5 +31,6 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-
-
+jwt:
+  secret: 4bb6d1dfbafb64a681139d1586b6f1160d18159afd57c8c79136d7490630407c
+  expiration: 86400000

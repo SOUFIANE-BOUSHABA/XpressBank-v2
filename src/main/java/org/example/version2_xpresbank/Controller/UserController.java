@@ -46,8 +46,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserDTO>> getAllUsers(@RequestHeader("Authorization") String authorizationHeader) {
-        checkAdminPermission(authorizationHeader);
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+
         List<UserDTO> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
     }
