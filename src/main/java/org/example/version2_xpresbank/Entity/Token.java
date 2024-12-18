@@ -20,15 +20,19 @@ public class Token {
     @Column(name = "id")
     private Integer id;
 
+    @SuppressWarnings("unused")
     @Column(name = "access_token")
     private String accessToken;
 
+    @SuppressWarnings("unused")
     @Column(name = "refresh_token")
     private String refreshToken;
 
+    @SuppressWarnings("unused")
     @Column(name = "is_logged_out")
     private boolean loggedOut;
 
+    @SuppressWarnings("unused")
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

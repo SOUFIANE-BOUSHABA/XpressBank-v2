@@ -16,6 +16,7 @@ public class Permission {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @SuppressWarnings("unused")
     @Column(unique = true, nullable = false)
     private String name;
 }
