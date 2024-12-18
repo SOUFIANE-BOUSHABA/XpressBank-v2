@@ -59,4 +59,6 @@ public class User {
 
     @Column(nullable = false, columnDefinition = "integer default 6")
     private int bankingDuration;
+
+
 }
