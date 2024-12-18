@@ -21,9 +21,9 @@ spring:
           jwk-set-uri: http://localhost:8080/auth/realms/XpressBank/protocol/openid-connect/certs
 
   datasource:
-
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://XpressBank-devops:5432/XpressBank
+
     username: admin
     password: admin
   jpa:

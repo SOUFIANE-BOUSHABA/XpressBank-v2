@@ -27,7 +27,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
-        <sonar.login>sqa_6044134f7e710630ec5abf74204228f79ba4ef64</sonar.login>
+        <sonar.login>sqa_63bcfa89e5521222e5a8ef58de681309e01bd776</sonar.login>
     </properties>
     <dependencies>
         <dependency>
