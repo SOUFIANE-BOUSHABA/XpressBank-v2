@@ -22,7 +22,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/XpressBank
+    url: jdbc:postgresql://localhost:5433/XpressBank
     username: admin
     password: admin
   jpa:

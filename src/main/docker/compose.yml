@@ -1,0 +1,17 @@
+name: XpressBank
+services:
+  postgres:
+    container_name: XpressBank-devops
+    image: 'postgres:17'
+    environment:
+      - 'POSTGRES_DB=XpressBank'
+      - 'POSTGRES_PASSWORD=admin'
+      - 'POSTGRES_USER=admin'
+    ports:
+      - '5433:5432'
+volumes:
+  postgres_data:
+    driver: local
+networks:
+  jenkins-network:
+    driver: bridge
