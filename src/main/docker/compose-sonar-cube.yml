@@ -1,5 +1,5 @@
 version: '3.8'
-name: XpressBank
+
 services:
   sonar:
     container_name: XpressBank-sonarqube
@@ -7,5 +7,5 @@ services:
     environment:
       - SONAR_FORCEAUTHENTICATION=false
     ports:
-      - 127.0.0.1:9001:9000
-      - 127.0.0.1:9000:9000
+      - "9001:9000"
+      - "9000:9000"
