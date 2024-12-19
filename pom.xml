@@ -24,10 +24,11 @@
         <developerConnection/>
         <tag/>
         <url/>
+
     </scm>
     <properties>
         <java.version>17</java.version>
-        <sonar.login>sqa_ce7b596ceb978906d8194049a353aa64517c3735</sonar.login>
+        <sonar.login>sqa_066a8f4cc7cf0cf407e56440b6014414a80e6548</sonar.login>
     </properties>
 
     <dependencies>
